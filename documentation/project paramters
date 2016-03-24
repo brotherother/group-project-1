@@ -1,0 +1,19 @@
+Bar Crawl / Deal Finder
+
+Dennis Flynn 
+Ryan Sy
+Abdullah Mamun
+
+Searches deals at local bars and returns a walking map for pub crawls
+
+Sketch of Product
+
+API's used
+google maps & sqoot
+
+Breakdown of tasks
+front end
+user input -> sqoot search
+sqoot search -> user selectable list
+user selectable list -> google maps
+google maps -> navigation display
