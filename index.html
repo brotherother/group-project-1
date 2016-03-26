@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>BoozR</title>
+    <title>Deals and Wheels</title>
 
     <!-- Latest compiled and minified CSS -->
     <link crossorigin="anonymous" href=
@@ -32,10 +32,9 @@
         <!-- Jumbotron -->
 
         <div class="jumbotron">
-            <h1 class="text-center">BOOZR</h1>
+            <h1 class="text-center">Deals and Wheels</h1>
 
-            <h2 class="text-center">Find happy hours and pub crawls near
-            you!</h2>
+            <h2 class="text-center">Find deals on local goods and services, then plan your trip!</h2>
         </div>
 
         <div class="row">
@@ -44,8 +43,7 @@
                 <!-- Search for booze deals  -->
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><strong>Search for booze
-                        deals!</strong>
+                        <h3 class="panel-title"><strong>Search for Local Deals</strong>
                         </h3>
                     </div>
 
@@ -75,6 +73,11 @@
                                 <label for="zipInput">Zip Code</label> <input class=
                                 "form-control" id="zipInput" type="number">
                             </div>
+
+                            <div class="form-group">
+                                <label for="radiusInput">raius (mi)</label> <input class=
+                                "form-control" id="raiusInput" type="number">
+                            </div>
                             
                             <div id="searchButton">
                             <button class="btn btn-primary"
@@ -95,7 +98,7 @@
 
                     <div class="panel-body">
                         <table class="table table-hover" id="searchResults">
-                            <tbody>
+                            <tbody id = results>
                             </tbody>
                         </table>
                     </div>
