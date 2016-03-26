@@ -49,7 +49,6 @@
 
                     <div class="panel-body">
                         <!-- Entry Form -->
-                        <form>
                             <div class="form-group">
                                 <label for="addressInput">Street Address</label>
                                 <input class="form-control" id="addressInput"
@@ -76,15 +75,19 @@
 
                             <div class="form-group">
                                 <label for="radiusInput">raius (mi)</label> <input class=
-                                "form-control" id="raiusInput" type="number">
+                                "form-control" id="radiusInput" type="number">
                             </div>
                             
-                            <div id="searchButton">
-                            <button class="btn btn-primary"
+                            <div class="form-group">
+                                <label for="resultsNumberInput">Number of Results to Return</label> <input class=
+                                "form-control" id="resultsNumberInput" type="number">
+                            </div>
+
+                            <div>
+                            <button id="searchButton" class="btn btn-primary"
                             type="submit">Search</button>
                             </div>
 
-                        </form>
                     </div>
                 </div>
 
@@ -114,7 +117,7 @@
     </div>
 
     <!-- Javascript -->
-    <script src="assets/javascript/map.js">
+    <!-- <script src="assets/javascript/map.js"> -->
     </script>
     <script src="assets/javascript/sqoot.js">
     </script>
