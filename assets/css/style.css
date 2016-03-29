@@ -1,0 +1,54 @@
+body {
+	background-color: black;
+	background-repeat: no-repeat;
+	background-size: cover;	
+	color: white;
+	font-family: 'HeroLight', Helvetica, Arial, sans-serif;
+}
+
+@font-face {
+    font-family: HeroLight;
+    src: url("../fonts/HeroLight.otf");
+}
+
+h1#logo {
+	font-size: 4em;
+}		
+
+.jumbotron {
+	background-color: black;
+}
+
+.panel-body {
+	background-color: black;
+}
+
+.panel-primary>.panel-heading {
+	background-color: #242424;
+	border-color: #242424;
+}
+
+#searchButtonDiv {
+	text-align: center;
+	margin: auto;
+}
+
+#searchButton:hover{
+	background-color: #0e330a;
+}
+.panel.panel-primary {
+	border-color: #242424;
+}
+
+#searchButton {
+    cursor:pointer;
+    background-color: #0A7A06;
+    border-color: #242424;
+}
+
+#footer{
+    display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
