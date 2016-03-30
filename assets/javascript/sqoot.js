@@ -2,10 +2,16 @@
 $(document).ready(function(){
 	$('#searchButton').click(function() {
 		var location = $('#addressInput').val().trim() + $('#cityInput').val().trim() + $('#stateInput').val().trim() + $('#zipInput').val().trim()
-		var radius = $('#radiusInput').val().trim();
-		var numberOfResults = $('#resultsNumberInput').val().trim();
 		console.log(location);
-
+		debugger;
+		location = encodeURIComponent(location);
+		console.log(location);
+		debugger;
+		var radius = $('#radiusInput').val().trim();
+		debugger;
+		console.log(radius);
+		debugger;
+		// var numberOfResults = $('#resultsNumberInput').val().trim();
 		renderResults(location, radius, numberOfResults);
 	});
 
