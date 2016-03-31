@@ -1,52 +1,29 @@
-// var bars = [];
+$(document).ready(function(){
+	$('#searchButton').click(function() {
+		var location = $('#addressInput').val().trim() + $('#cityInput').val().trim() + $('#stateInput').val().trim() + $('#zipInput').val().trim()
+		console.log(location);
+		location = encodeURIComponent(location);
+		console.log(location);
+		var radius = $('#radiusInput').val().trim();
+		console.log(radius);
+		// var numberOfResults = $('#resultsNumberInput').val().trim();
+		$('#resultsView').empty();
 
-// function renderBarButtons() {
-// 	$('#buttonsView').empty();
-// 	for (var i = 0; i < bars.length; i++) {
+		var queryURL = "http://api.sqoot.com/v2/deals?location="+location+"&radius="+radius+"&category_slugs=bars-clubs&api_key=cfdos8";
 
-// 	}
+		console.log(queryURL);
 
-// }
-
-// function display
-var bars = [];
-
-$('#search-submit').on('click'), function() {
-	var location = $('#location').val.trim();
-	var radius = $('#radius').val.trim();
-	var numberOfResults = $('#numberOfResults').val.trim();
-
-	renderResults(location, radius, nubmer);
-}
-
-
-function renderResults(location, radius, number) {
-	$('#resultsView').empty();
-
-	var queryURL = "http://api.sqoot.com/v2/coupons?location=" + location + "&radius=" + radius + "&per_page=" + number + "&api_key=dlmxb4";
-
-	console.log(results.coupon);
-
-	$.ajax({url: queryURL, method: 'GET'}).done(function(response) {
-		var results = response.coupon;
-		for (var i = 0; i < numberOfResults; i++) {
-			var a = $('<button>');
-			a.id('couponResult' + i);
-			a.addClass('coupon-result');
-			a.attr('deal-description', results[i].description);
-			a.attr('address', results[i].address);
-			a.attr('chosen-status');
-			$('#resultsView').prepend(a);
-		};
-	});
-
-
-};
-
-	
-	
-
-
-
-}
-
+		$.ajax({url: queryURL, method: 'GET'}).done(function(response) {
+			var results = response.deals;
+			console.log(results);
+			for (var i = 0; i < results.length; i++) {
+			var resultDiv = $('<div>');
+			var p = $('<p>').text(results[i].deal.title);
+			var resultImage = $('<img>').attr("src", results[i].deal.image_url);
+			resultDiv.append(p);
+			resultDiv.append(resultImage);
+			$('#resultsView').prepend(resultDiv);			
+  			}	
+		}); 
+	}); 
+});		
