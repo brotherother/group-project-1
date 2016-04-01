@@ -17,6 +17,7 @@ h1#logo {
 
 .jumbotron {
 	background-color: black;
+	padding-bottom: 0px;
 }
 
 .panel-body {
@@ -33,9 +34,16 @@ h1#logo {
 	margin: auto;
 }
 
-#searchButton:hover{
+#searchButton:hover {
 	background-color: #0e330a;
 }
+
+#returnButtonDiv {
+	text-align: center;
+	margin: auto;
+	padding: 50px;
+}
+
 .panel.panel-primary {
 	border-color: #242424;
 }
@@ -44,11 +52,46 @@ h1#logo {
     cursor:pointer;
     background-color: #0A7A06;
     border-color: #242424;
+    width: 100px;
 }
 
-#footer{
+#footer {
     display: table;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+#resultsView {
+	text-align: center;
+	margin: auto;
+}
+
+#resultButton {
+	height: 100px;
+	width: 400px;
+	margin: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	text-align: center;
+	margin: auto;
+	background-color: #242424;
+	color: white;
+}
+
+#resultButton:hover {
+  background: #0A7A06;
+}
+
+.resultDiv {
+	margin: 20px;
+}
+
+.modal-title {
+	color: black;
+}
+
+.modal-body {
+	color: black;
 }

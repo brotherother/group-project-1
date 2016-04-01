@@ -7,21 +7,19 @@
 
     <title>BoozR</title>
 
-    <!-- Latest compiled and minified CSS -->
+    <!-- Latest compiled and minified CSS; JS libraries -->
     <link crossorigin="anonymous" href=
     "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
     integrity=
     "sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
     rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/map.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.1.min.js">
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
     </script>
-    <link rel="stylesheet" type="text/css" href="findBars.css">
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAVfTTAXPcbwzadCTdms_52C44KwdYUJe0"></script>
+
 </head>
 
 <body id="mainPage">
@@ -29,7 +27,7 @@
     <div class="container">
             <!-- Jumbotron -->
         <div class="jumbotron">
-            <h1 id="logo" class="text-center"><strong>Booz</strong><img alt="R" 
+            <h1 id="logo" class="text-center"><strong>Booz</strong><img id="logoImage" alt="R" 
             src="assets/images/rutgersR.jpg"></h1>
 
             <h2 class="text-center">Find drink specials, happy hours and pub crawls near you!</h2>
@@ -47,7 +45,7 @@
 
                     <div class="panel-body">
                         <!-- Entry Form -->
-                        <form method="post">
+                        <form>
                             <div class="form-group">
                                 <label for="addressInput">Street Address</label>
                                 <input class="form-control" id="addressInput"
@@ -72,92 +70,74 @@
                                 "form-control" id="zipInput" type="number">
                             </div>
 
-                             <div class="form-group">
-                                <label for="radiusInput">Radius (mi)</label> <input class=
+                            <div class="form-group">
+                                <label for="radiusInput">Radius (in miles)</label> <input class=
                                 "form-control" id="radiusInput" type="number">
                             </div>
                             
                             <div id="searchButtonDiv">
-                                <button href='#' id="searchButton" class="btn btn-primary" type="button"><img src="assets/images/beerbottle.png" alt="Search"></button>
+                                <button id="searchButton" class="btn btn-primary" type="submit"><img id="imageForButton" src="assets/images/beerbottle.png" alt="Search"></button>
                             </div>
                         </form>
                     </div>
                 </div>
 
                 <!-- Search Results -->
-                <div id="searchResults">
+                <div id="resultsView">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title"><strong>Search Results</strong>
                             </h3>
                         </div>
 
-
-                        <div class="panel-body">
+                        <div class="panel-body">Search results table goes here
                             <table class="table table-hover">
-                                <tbody id="resultsView">
+                                <tbody>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>        
 
-                <table>  
-                    <div id="findbar">Find Bars in:</div>
-
-                    <div id="locationField">
-                        <input id="autocomplete" placeholder="Enter a city" type="text" />
+                <!-- Map of results -->
+                <div id="resultsMap">
+                    <div class="panel-body">
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                 <div class="modal-header">
+                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"></h4>
+                                </div>
+                                <div class="modal-body">
+                                .
+                                </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
-
-                    <div id="map"></div>
-
-                    <div id="listing">
-                        <table id="resultsTable">
-                        <tbody id="results"></tbody>
-                        </table>
+                </div>
+            </div>
                     </div>
+                </div>
 
-                    <div style="display: none">
-                    <div id="info-content">
-                    <table>
-                    <tr id="iw-url-row" class="iw_table_row">
-                    <td id="iw-icon" class="iw_table_icon"></td>
-                    <td id="iw-url"></td>
-                    </tr>
-                    <tr id="iw-address-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Address:</td>
-                    <td id="iw-address"></td>
-                    </tr>
-                    <tr id="iw-phone-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Telephone:</td>
-                    <td id="iw-phone"></td>
-                    </tr>
-                    <tr id="iw-rating-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Rating:</td>
-                    <td id="iw-rating"></td>
-                    </tr>
-                    <tr id="iw-website-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Website:</td>
-                    <td id="iw-website"></td>
-                    </tr>
-                </table>
-            </div>
-            </div>
             </div>
         </div>
-        <div id="footer">Copyright 2016 Team Jonas Brothers</div>
+
+            <div id="returnButtonDiv">
+                <button id="returnButton" class="btn btn-primary" type="submit">Return to search form</button>
+            </div>
+
+            <div id="footer">Copyright 2016 Team Jonas Brothers</div>
     </div>
 
     <!-- Javascript -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-fgz-LWMuaeK-Dr-UODE8hlM6tdsCMJg&libraries=places&callback=initMap"
-        async defer></script>
-    <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="findBars.js"></script>
     <script src="assets/javascript/main.js">
     </script>
-    <!-- <script src="assets/javascript/map.js"> -->
+    <script src="assets/javascript/map.js">
     </script>
     <script src="assets/javascript/sqoot.js">
     </script>
+
 </body>
 </html>

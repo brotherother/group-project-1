@@ -1,54 +1,3 @@
-// On hitting the search submit button, data fields are loaded into 
-// $(document).ready(function(){
-// 	$('#searchButton').click(function() {
-// 		var location = $('#addressInput').val().trim() + $('#cityInput').val().trim() + $('#stateInput').val().trim() + $('#zipInput').val().trim()
-// 		console.log(location);
-// 		debugger;
-// 		location = encodeURIComponent(location);
-// 		console.log(location);
-// 		debugger;
-// 		var radius = $('#radiusInput').val().trim();
-// 		debugger;
-// 		console.log(radius);
-// 		debugger;
-// 		// var numberOfResults = $('#resultsNumberInput').val().trim();
-// 		renderResults(location, radius, numberOfResults);
-// 	});
-
-
-// });
-
-
-// function renderResults(location, radius, numberOfResults) {
-// 	$('#resultsView').empty();
-
-// 	var queryURL = "http://api.sqoot.com/v2/coupons?location=" + location  + "&radius=" + radius + "&per_page=" + numberOfResults + "&api_key=dlmxb4";
-
-// 	console.log(queryURL);
-// 	console.log(results.coupons);
-
-// 	$.ajax({url: queryURL, method: 'GET'}).done(function(response) {
-// 		var results = response.coupons;
-// 		console.log(response.coupons);
-// 		for (var i = 0; i < numberOfResults; i++) {
-// 			var a = $('<button>');
-// 			a.attr('id', 'couponResult' + i);
-// 			a.addClass('coupon-result');
-// 			a.attr('deal-description', results[i].coupon.description);
-// 			console.log(results[i].coupon.description);
-// 			a.attr('address', results[i].coupon.address);
-// 			a.attr('chosen-status');
-// 			$('#results').prepend(a);
-// 		};
-// 	});
-// };
-
-	
-	
-
-
-
-
 $(document).ready(function(){
 	$('#searchButton').click(function() {
 		var location = $('#addressInput').val().trim() + $('#cityInput').val().trim() + $('#stateInput').val().trim() + $('#zipInput').val().trim()
@@ -67,12 +16,21 @@ $(document).ready(function(){
 			var results = response.deals;
 			console.log(results);
 			for (var i = 0; i < results.length; i++) {
-			var resultDiv = $('<div>');
-			var p = $('<p>').text(results[i].deal.title);
-			var resultImage = $('<img>').attr("src", results[i].deal.image_url);
-			resultDiv.append(p);
-			resultDiv.append(resultImage);
-			$('#resultsView').append(resultDiv);			
+
+			var resultDiv = $('<div>').attr("class", "resultDiv"); //creates div to hold button
+
+			var p = $('<button>').text(results[i].deal.short_title).attr("id", "resultButton").attr("type", "button").attr("class", "btn btn-primary btn-lg").attr("data-toggle", "modal").attr("data-target", "#myModal"); //creates button with short title as text, and opens modal
+
+			var resultTitle = $('<p>').text(results[i].deal.title); //creates p element with title of deal
+
+			resultDiv.append(p); //append button to div
+
+			$('#resultsView').append(resultDiv); //append button divs to resultsView container
+
+			$('#resultButton').click(function(){
+				$('.modal-title').append(resultTitle);
+			}); //click function to append deal title to modal title
+
   			}	
 		}); 
 	}); 
