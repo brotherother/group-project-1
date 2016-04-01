@@ -1,0 +1,87 @@
+      #map {
+        height: 420px;
+        width: 66%;
+        margin-bottom: 30px;
+        position: relative;
+      }
+
+      #resultsTable {
+        font-size: 12px;
+        color: black;
+        float: right;
+        margin-top: -450px;
+      }
+
+      #listing {
+        position: absolute;
+/*        width: 33%;*/
+        height: 400px;
+        overflow: auto;
+/*        left: 442px;*/
+        top: 0px;
+        cursor: pointer;
+        overflow-x: hidden;
+      }
+      #findbar {
+        position: absolute;
+        text-align: center;
+        width: 0px;
+        font-size: 14px;
+        padding: 4px;
+        z-index: 5;
+        background-color: #fff;
+      }
+
+      #controls {
+        position: absolute;
+        left: 300px;
+        width: 140px;
+        top: 0px;
+        z-index: 5;
+        background-color: #fff;
+      }
+      #autocomplete {
+        width: 100%;
+      }
+      #country {
+        width: 100%;
+      }
+      .placeIcon {
+        width: 20px;
+        height: 34px;
+        margin: 4px;
+      }
+      .barIcon {
+        width: 24px;
+        height: 24px;
+      }
+      #resultsTable {
+        border-collapse: collapse;
+        width: 240px;
+        color: black;
+      }
+      #rating {
+        font-size: 13px;
+/*        font-family: Arial Unicode MS;*/
+      }
+      .iw_table_row {
+        height: 18px;
+        color: black;
+      }
+      .iw_attribute_name {
+        font-weight: bold;
+        text-align: right;
+        color: black;
+      }
+      .iw_table_icon {
+        text-align: right;
+        
+      }
+
+       #locationField input[type=text] {
+        color: #D9DFDA;
+      }
+
+      .bar-container {
+        margin-bottom: -20px;
+      }
