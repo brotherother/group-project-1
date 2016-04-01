@@ -57,7 +57,6 @@ $(document).ready(function(){
 		console.log(location);
 		var radius = $('#radiusInput').val().trim();
 		console.log(radius);
-		// var numberOfResults = $('#resultsNumberInput').val().trim();
 		$('#resultsView').empty();
 
 		var queryURL = "http://api.sqoot.com/v2/deals?location="+location+"&radius="+radius+"&category_slugs=bars-clubs&api_key=cfdos8";
@@ -73,7 +72,7 @@ $(document).ready(function(){
 			var resultImage = $('<img>').attr("src", results[i].deal.image_url);
 			resultDiv.append(p);
 			resultDiv.append(resultImage);
-			$('#resultsView').prepend(resultDiv);			
+			$('#resultsView').append(resultDiv);			
   			}	
 		}); 
 	}); 
