@@ -31,6 +31,7 @@ $(document).ready(function(){
 			$('#resultButton').click(function(){
 				$('.modal-title').html(resultTitle);
 				$('.modal-body').html(resultLink);
+				$('.modal-body').append('<img src="http://www.destination360.com/north-america/us/new-york/new-york/doubletree-metropolitan-hotel-new-york-city-map.gif" />');
 			}); //click function to append deal title to modal title
 
   			}	
