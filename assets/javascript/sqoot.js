@@ -22,13 +22,15 @@ $(document).ready(function(){
 			var p = $('<button>').text(results[i].deal.short_title).attr("id", "resultButton").attr("type", "button").attr("class", "btn btn-primary btn-lg").attr("data-toggle", "modal").attr("data-target", "#myModal"); //creates button with short title as text, and opens modal
 
 			var resultTitle = $('<p>').text(results[i].deal.title); //creates p element with title of deal
+			var resultLink = $('<a>'+i).attr("href", results[i].deal.url).text("Click here to view more details and purhcases this deal!").attr("id", "resutlButton"+i); //creates p element with title of deal
 
 			resultDiv.append(p); //append button to div
 
 			$('#resultsView').append(resultDiv); //append button divs to resultsView container
 
 			$('#resultButton').click(function(){
-				$('.modal-title').append(resultTitle);
+				$('.modal-title').html(resultTitle);
+				$('.modal-body').html(resultLink);
 			}); //click function to append deal title to modal title
 
   			}	
