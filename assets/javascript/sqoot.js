@@ -8,7 +8,7 @@ $(document).ready(function(){
 		console.log(radius);
 		$('#resultsView').empty();
 
-		var queryURL = "http://api.sqoot.com/v2/deals?location="+location+"&radius="+radius+"&category_slugs=bars-clubs&api_key=cfdos8";
+		var queryURL = "https://api.sqoot.com/v2/deals?location="+location+"&radius="+radius+"&category_slugs=bars-clubs&api_key=cfdos8";
 
 		console.log(queryURL);
 
